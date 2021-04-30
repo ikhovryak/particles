@@ -22,7 +22,12 @@ Image::Image(int width, int height) : myWidth(width), myHeight(height), myLoaded
 
 Image::Image(const Image& orig)
 {
-    cout << "not implemented\n";
+    myData = new Pixel[orig.myWidth * orig.myHeight];
+    for (int i = 0; i < orig.myWidth * orig.myHeight; i++) {
+        myData[i] = orig.myData[i];
+    }
+    myLoaded = orig.myLoaded;
+    //cout << "not implemented\n";
 }
 
 Image& Image::operator=(const Image& orig)
@@ -32,7 +37,13 @@ Image& Image::operator=(const Image& orig)
         return *this;
     }
 
-    cout << "not implemented\n";
+    myData = new Pixel[orig.myWidth * orig.myHeight];
+    for (int i = 0; i < orig.myWidth * orig.myHeight; i++) {
+        myData[i] = orig.myData[i];
+    }
+    myLoaded = orig.myLoaded;
+
+    //cout << "not implemented\n";
     return *this;
 }
 
