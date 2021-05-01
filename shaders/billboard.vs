@@ -22,7 +22,6 @@ void main()
    color = uColor;
    uv = vPos.xy;
 
-   float distance = sqrt(pow(uCameraPos.x - uOffset.x, 2) + pow(uCameraPos.y - uOffset.y, 2) + pow(uCameraPos.z - uOffset.z, 2));
 
    mat4 transformation = mat4 (1.0f, 0.0f, 0.0f, 0.0f, 
 							  0.0f, 1.0f, 0.0f, 0.0f,
@@ -30,6 +29,7 @@ void main()
 							  uOffset.x, uOffset.y, uOffset.z, 1.0f);
 
    
+   float distance = sqrt(pow(uCameraPos.x - uOffset.x, 2) + pow(uCameraPos.y - uOffset.y, 2) + pow(uCameraPos.z - uOffset.z, 2));
 
    vec3 z = vec3((uCameraPos.x - uOffset.x)/distance, (uCameraPos.y - uOffset.y)/distance, (uCameraPos.z - uOffset.z)/distance);
    vec3 y = vec3(0,1,0);
@@ -37,7 +37,10 @@ void main()
    y = normalize(vec3(z.y*x.z - z.z*x.y, z.z*x.x - z.x*x.z, z.x*x.y - z.y*x.x));
 
 
-   mat4 rotation = mat4 (x, 0, y, 0, z, 0, vec4(0,0,0,1));
+   mat4 rotation = mat4 (x, 0.0f, 
+					   y, 0.0f, 
+					   z, 0.0f, 
+					   0.0f, 0.0f, 0.0f, 1.0f);
    
     
    mat4 scale = mat4 (uSize, 0.0f, 0.0f, 0.0f,
@@ -45,7 +48,7 @@ void main()
 					 0.0f, 0.0f, uSize, 0.0f,
 					 0.0f, 0.0f, 0.0f, 1.0f);
    
-   gl_Position = uVP * rotation * transformation * scale * vec4(vPos - vec3(0.5f, 0.5f, 0), 1.0);
+   gl_Position = uVP * rotation * transformation * scale * vec4(vPos, 1.0);
    
 
 }

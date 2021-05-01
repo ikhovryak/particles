@@ -107,7 +107,7 @@ int main(int argc, char** argv)
       theRenderer.lookAt(vec3(x, 0, z), vec3(0, 0, 0));
 
       theRenderer.begin(imageId, ALPHA);
-      theRenderer.quad(vec3(0), vec4(1.0, 0.0, 0.5, 1.0), 1.0f);
+      theRenderer.quad(vec3(-1.5f, -1.5f, 0), vec4(1.0, 0.0, 0.5, 1.0), 3.0f);
       theRenderer.end();
 
       // Swap front and back buffers
