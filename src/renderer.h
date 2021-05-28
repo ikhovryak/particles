@@ -22,6 +22,8 @@ namespace agl {
 
       virtual void begin(GLuint textureId, BlendMode mode);
       virtual void quad(const glm::vec3& pos, const glm::vec4& color, float size);
+      virtual void fire(const glm::vec3& pos, const glm::vec4& color, float size);
+
       virtual void end();
 
       virtual bool initialized() const;

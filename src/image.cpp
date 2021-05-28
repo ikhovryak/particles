@@ -27,7 +27,6 @@ Image::Image(const Image& orig)
         myData[i] = orig.myData[i];
     }
     myLoaded = orig.myLoaded;
-    //cout << "not implemented\n";
 }
 
 Image& Image::operator=(const Image& orig)
@@ -43,7 +42,6 @@ Image& Image::operator=(const Image& orig)
     }
     myLoaded = orig.myLoaded;
 
-    //cout << "not implemented\n";
     return *this;
 }
 

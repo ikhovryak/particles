@@ -131,6 +131,22 @@ void Renderer::quad(const glm::vec3& pos, const glm::vec4& color, float size)
    glDrawArrays(GL_TRIANGLES, 0, 6); 
 }
 
+void Renderer::fire(const glm::vec3& pos, const glm::vec4& color, float size)
+{
+    assert(mInitialized);
+
+    glUniform1f(glGetUniformLocation(mShaderId, "uRows"), 4);
+    glUniform1f(glGetUniformLocation(mShaderId, "uCols"), 8);
+    glUniform1f(glGetUniformLocation(mShaderId, "uTime"), 0);
+    glUniform1f(glGetUniformLocation(mShaderId, "uTimeOffset"), 0);
+
+    /*glUniform3f(glGetUniformLocation(mShaderId, "uOffset"), pos[0], pos[1], pos[2]);
+    glUniform4f(glGetUniformLocation(mShaderId, "uColor"), color[0], color[1], color[2], color[3]);
+    glUniform1f(glGetUniformLocation(mShaderId, "uSize"), size);*/
+
+    glDrawArrays(GL_TRIANGLES, 0, 6);
+}
+
 void Renderer::end()
 {
    assert(mInitialized);
@@ -158,6 +174,7 @@ GLuint Renderer::loadTexture(const std::string& filename)
 
    return texId;
 }
+
 
 std::string Renderer::loadShaderFromFile(const std::string& fileName)
 {
@@ -215,9 +232,9 @@ GLuint Renderer::loadShader(const std::string& vertex, const std::string& fragme
    return shaderId;
 }
 
-// For rendering animated sprites
-   //glUniform1f(glGetUniformLocation(shaderId, "uRows"), 4);
-   //glUniform1f(glGetUniformLocation(shaderId, "uCols"), 8);
-   //glUniform1f(glGetUniformLocation(shaderId, "uTime"), 0);
-   //glUniform1f(glGetUniformLocation(shaderId, "uTimeOffset"), 0);
+ //For rendering animated sprites
+   /*glUniform1f(glGetUniformLocation(shaderId, "uRows"), 4);
+   glUniform1f(glGetUniformLocation(shaderId, "uCols"), 8);
+   glUniform1f(glGetUniformLocation(shaderId, "uTime"), 0);
+   glUniform1f(glGetUniformLocation(shaderId, "uTimeOffset"), 0);*/
 
