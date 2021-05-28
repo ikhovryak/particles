@@ -2,7 +2,12 @@
 
 Implements particle systems using openGL
 
-TODO: Add a representative image for your project here
+## Explosion Effect
+![Demo Explosion](demo.gif)
+
+## Basic Billboard and Confetti
+![Demo Confetti](confetti.gif)
+![Demo Billboard](billboard.png)
 
 ## How to build
 
@@ -45,6 +50,3 @@ particles/build $ ../bin/confetti
 particles/build $ ../bin/demo
 ```
 
-## Results
-
-TODO: Show your work
