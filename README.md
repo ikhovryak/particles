@@ -2,7 +2,8 @@
 
 Implements particle systems using openGL
 
-## Explosion Effect
+## My Particle Effect: Explosion Effect
+I have created an explosion effect using two types of textures: fire burst and smoke. It works by first increasing the size of a fire burst until it reaches a certain level and then switching the texture and its color to smoke and decreasing size and opacity of the particles.
 ![Demo Explosion](demo.gif)
 
 ## Basic Billboard and Confetti
